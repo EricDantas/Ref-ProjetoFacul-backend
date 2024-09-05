@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class Escola {
     //Atributos
     @Id
-    private int id;
+    private Long id;
     private String nome;
     private String telefone;
     private String email;

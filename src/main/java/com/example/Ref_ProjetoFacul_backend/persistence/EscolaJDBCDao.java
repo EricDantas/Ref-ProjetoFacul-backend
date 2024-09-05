@@ -3,7 +3,7 @@ package com.example.Ref_ProjetoFacul_backend.persistence;
 import com.example.Ref_ProjetoFacul_backend.config.postgre.ConexaoBD;
 import com.example.Ref_ProjetoFacul_backend.models.entities.Escola;
 import com.example.Ref_ProjetoFacul_backend.models.entities.EscolaDTO;
-import com.example.Ref_ProjetoFacul_backend.models.interfaces.IEscola;
+import com.example.Ref_ProjetoFacul_backend.models.repositories.EscolaRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class EscolaJDBCDao implements IEscola {
+public class EscolaJDBCDao implements EscolaRepository {
     // Conexao com o banco
     private Connection conexao = null;
 
