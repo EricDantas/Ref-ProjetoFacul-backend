@@ -1,15 +1,13 @@
 package com.example.Ref_ProjetoFacul_backend.models.entities;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Escola {
     //Atributos
     @Id
@@ -20,12 +18,15 @@ public class Escola {
     private String endereco;
 
     //Metodos
+    public Escola(){
+
+    }
+
     public Escola(EscolaDTO escolaDTO){
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.endereco = endereco;
+        this.nome = escolaDTO.nome();
+        this.telefone = escolaDTO.telefone();
+        this.email = escolaDTO.email();
+        this.endereco = escolaDTO.endereco();
     }
 
 }
-

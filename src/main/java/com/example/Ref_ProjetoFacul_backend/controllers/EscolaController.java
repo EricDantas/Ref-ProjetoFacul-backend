@@ -1,7 +1,7 @@
 package com.example.Ref_ProjetoFacul_backend.controllers;
 
 import com.example.Ref_ProjetoFacul_backend.models.entities.EscolaDTO;
-import com.example.Ref_ProjetoFacul_backend.models.repositories.EscolaRepository;
+import com.example.Ref_ProjetoFacul_backend.models.interfaces.IEscola;
 import com.example.Ref_ProjetoFacul_backend.persistence.EscolaJDBCDao;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 @RestController
 @RequestMapping("api/escolas")
-public class EscolaController implements EscolaRepository {
+public class EscolaController implements IEscola {
     //atributo
     private EscolaJDBCDao escolaPersistenciaBD;
     public EscolaController() throws Exception{
@@ -70,4 +70,3 @@ public class EscolaController implements EscolaRepository {
     }
 
 }
-

@@ -3,7 +3,7 @@ package com.example.Ref_ProjetoFacul_backend.persistence;
 import com.example.Ref_ProjetoFacul_backend.config.postgre.ConexaoBD;
 import com.example.Ref_ProjetoFacul_backend.models.entities.Escola;
 import com.example.Ref_ProjetoFacul_backend.models.entities.EscolaDTO;
-import com.example.Ref_ProjetoFacul_backend.models.repositories.EscolaRepository;
+import com.example.Ref_ProjetoFacul_backend.models.interfaces.IEscola;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class EscolaJDBCDao implements EscolaRepository {
+public class EscolaJDBCDao implements IEscola {
     // Conexao com o banco
     private Connection conexao = null;
 
@@ -103,7 +103,7 @@ public class EscolaJDBCDao implements EscolaRepository {
             ResultSet rs = preparedStamente.executeQuery();
             if(rs.next()){
                 Escola obj = new Escola();
-                obj.setId(rs.getInt("id_escola"));
+                obj.setId(rs.getLong("id_escola"));
                 obj.setNome(rs.getString("nome_escola"));
                 obj.setTelefone(rs.getString("telefone_escola"));
                 obj.setEmail(rs.getString("email_escola"));
@@ -130,7 +130,7 @@ public class EscolaJDBCDao implements EscolaRepository {
             ResultSet rs = preparedStamente.executeQuery();
             while(rs.next()){
                 Escola escola = new Escola();
-                escola.setId(rs.getInt("id_escola"));
+                escola.setId(rs.getLong("id_escola"));
                 escola.setNome(rs.getString("nome_escola"));
                 escola.setTelefone(rs.getString("telefone_escola"));
                 escola.setEmail(rs.getString("email_escola"));
@@ -150,4 +150,3 @@ public class EscolaJDBCDao implements EscolaRepository {
 
 
 }
-
